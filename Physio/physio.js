@@ -1,5 +1,7 @@
 let poseNet;
 
+console.log('ml5 version:', ml5.version);
+
 function setup() {
     poseNet = ml5.poseNet(video, modelLoaded);
 }
