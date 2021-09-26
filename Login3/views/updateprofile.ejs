@@ -1,0 +1,61 @@
+<h1>Update Profile</h1>
+
+<% if (messages.error){  %>
+    <%= messages.error %>
+<% } %>
+<form id="updateProfile" action = "/updateProfile" method="POST">
+    <div>
+        <label for="name">name</label>
+        <input type="text" id = "name" name="name" value="<%= prof.rows[0].name %>" required>
+    </div>
+    <div>
+        <label for="phone">phone</label>
+        <input type="text" id = "phone" name="phone" value="<%= prof.rows[0].phone %>" required>
+    </div>
+    <div>
+        <label for="age">age</label>
+        <input type="etext" id = "age" name="age" value="<%= prof.rows[0].age %>" required>
+    </div>
+    <div>
+        <label for="weight">weight</label>
+        <input type="text" id = "weight" name="weight" value="<%= prof.rows[0].weight %>" required>
+    </div>
+    <div>
+        <label for="height">height</label>
+        <input type="text" id = "height" name="height" value="<%= prof.rows[0].height %>" required>
+    </div>
+    <div>
+        <label for="Specify">Specify</label>
+        <input type="text" id = "Specify" name="Specify" value="<%= prof.rows[0].specify %>" required>
+    </div>
+    <div>
+        <p>Please select gender:</p>
+        <input type="radio" id="male" name="gender" value="male" >
+        <label for="male">male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">female</label><br>
+    </div>
+    <div>
+        <p>Please select region of pain:</p>
+        <label>
+            neck
+            <input type="checkbox" name="checkArr" value="neck">
+          </label>
+          <label>
+            right sholder
+            <input type="checkbox" name="checkArr" value="right sholder">
+          </label>
+          <label>
+            left sholder
+            <input type="checkbox" name="checkArr" value="left sholder">
+          </label>
+          <label>
+            back
+            <input type="checkbox" name="checkArr" value="back">
+          </label>
+    </div>
+
+    <button type="submit">Update</button>
+</form>
+
+<a href="/profile">Profile</a>

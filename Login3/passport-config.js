@@ -5,33 +5,35 @@ const pool = require("./db");
 function initialize(passport, getUserByEmail, getUserById) {
 
     const authenticateUser = (email, password, done) => {
-        console.log(email, password);
+
+        //console.log(email, password);
         pool.query(
         `SELECT * FROM users WHERE email = $1`,
         [email],
         (err, results) => {
+
             if (err) {
-            throw err;
+
+                throw err;
             }
-            console.log(results.rows);
 
             if (results.rows.length > 0) {
             const user = results.rows[0];
 
             bcrypt.compare(password, user.password, (err, isMatch) => {
                 if (err) {
-                console.log(err);
+                    console.log(err);
                 }
                 if (isMatch) {
-                return done(null, user);
+                    return done(null, user);
                 } else {
                 //password is incorrect
-                return done(null, false, { message: "Password is incorrect" });
+                    return done(null, false, { message: "Password is incorrect" });
                 }
             });
             } else {
             // No user
-            return done(null, false, {
+                return done(null, false, {
                 message: "No user with that email address"
             });
             }
@@ -42,7 +44,9 @@ function initialize(passport, getUserByEmail, getUserById) {
     passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
     passport.serializeUser((user, done) => done(null, user.id))
     passport.deserializeUser((id, done) => {
+
         pool.query(`SELECT * FROM users WHERE id = $1`, [id], (err, results) => {
+
             if (err) {
                 return done(err);
             }
