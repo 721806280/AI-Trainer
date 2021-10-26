@@ -9,12 +9,12 @@ function setup() {
     debug: true
   }
   brain = ml5.neuralNetwork(options);
-  brain.loadData("1.json", dataReady);
+  brain.loadData("2.json", dataReady);
 }
 
 function dataReady() {
   brain.normalizeData();
-  brain.train({epochs: 50}, finished); 
+  brain.train({epochs: 100}, finished); 
 }
 
 function finished() {
