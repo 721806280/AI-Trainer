@@ -1,0 +1,21 @@
+<h1>HI <%= name %> </h1>
+<h1>Email <%= email %> </h1>
+
+<script>
+    localStorage.setItem('email1','<%-email%>');
+    document.cookie = 'email=<%-email%>;';
+</script>
+
+<a href="/profile">Profile</a>
+
+<br>
+<br>
+
+<a href="/physio-shoulder1">Shoulder Exercise - 1</a>
+
+<br>
+<br>
+
+<form action="/logout?_method=DELETE" method="POST">
+    <button type="submit">LOGOUT</button>
+</form>
