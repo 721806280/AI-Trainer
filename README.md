@@ -1,7 +1,7 @@
 # AI Trainer
 Physiotherapy trainer using PoseNet
 <br>
-Video Demo : https://youtu.be/ONlrG-83XZ8 
+Video Demo : https://www.youtube.com/watch?v=lA7SlSwNqdQ
 <br>
 <br>
 <center>
